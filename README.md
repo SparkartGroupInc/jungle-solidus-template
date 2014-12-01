@@ -23,7 +23,3 @@ OR (if you haven't moved the template folder to `~/.grunt-init/jungle-solidus/`)
 ```
 grunt-init /path/to/template/folder/
 ```
-
-## Gulp tasks
-
-The template provides a basic set of [Gulp](http://gulpjs.com) tasks that will move `jungle-solidus` common assets into the assets folder (`gulp _move-common-assets`), start Solidus (`gulp _start-solidus`), and watch assets (`gulp _watch`) for changes and reload using Livereload. If you want to compile or minify assets, you can add Gulp tasks to `gulpfile.js`. You can also just run `gulp` to move assets, start Solidus and watch for asset changes, or `gulp build` to move assets.

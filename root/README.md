@@ -11,6 +11,10 @@ Making Updates :octocat:
 
 Be sure to [use branches][github-flow] and push granular commits regularly [with good messages][git-messages].
 
+## Gulp tasks
+
+This site contains a basic set of [Gulp](http://gulpjs.com) tasks that will move `jungle-solidus` common assets into the assets folder (`gulp _move-common-assets`), start Solidus (`gulp _start-solidus`), watch assets for changes and reload using LiveReload (`gulp _watch`), and fingerprint assets (`gulp _fingerprint`). If you want to compile or minify assets, you can add Gulp tasks to `gulpfile.js`. You can also just run `gulp` to move assets, start Solidus and watch for asset changes, or `gulp build` to move assets.
+
 ### Review
 
 Ready to share your updates with others? [Open a pull request][github-pullrequest] and share the URL with everyone in any corresponding Trello cards, Slack, etc. With great formatting features and [checklists][github-checklists] a pull request provides a great place to discuss updates, feedback, etc.

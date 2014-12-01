@@ -53,6 +53,16 @@ gulp.task('_watch', function(){
   });
 });
 
+gulp.task('_fingerprint', function(){
+  gulp.src(['assets/**/*', '!assets/{scripts,styles}/**/*', 'views/**/*'], {base: process.cwd()})
+  .pipe(plumber({ errorHandler: logError }))
+  .pipe(filerevReplace({
+    filerev: ['assets/**/*'],
+    replace: ['assets/compiled/**/*', 'views/**/*'],
+    base:    'assets'}))
+  .pipe(gulp.dest(process.cwd()));
+});
+
 //Helper Functions
 function logError(err) {
   gutil.beep();
