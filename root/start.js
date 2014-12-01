@@ -7,11 +7,11 @@ var config = {
 }
 
 if( process.env.DEV ){
-  config.dev = true,
-  config.log_level = process.env.LOG_LEVEL,
-  config.livereload_port = process.env.LIVERELOAD_PORT,
-  config.log_server_port = process.env.LOG_SERVER_PORT,
-  config.log_server_level = process.env.LOG_SERVER_LEVEL
+  config.dev = true;
+  config.log_level = process.env.LOG_LEVEL;
+  config.livereload_port = process.env.LIVERELOAD_PORT;
+  config.log_server_port = process.env.LOG_SERVER_PORT;
+  config.log_server_level = process.env.LOG_SERVER_LEVEL;
 }
 
 solidus.start(config);

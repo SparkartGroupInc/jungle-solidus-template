@@ -1,8 +1,7 @@
 This site is built with:
 
  - [**Solidus**][solidus] serves pages from API data and [Handlebars templates][handlebars]
- - [**Grunt**][grunt] helps preprocess and compile assets, etc. 
- - [**Storyteller.io**][storyteller] provides reliable access to APIs
+ - [**Gulp**][gulp] helps preprocess and compile assets, etc.
 
 
 Making Updates :octocat:
@@ -31,7 +30,7 @@ Success/fail messages from CircleCI are posted in the [#deployments][slack] Slac
 
 [solidus]: https://github.com/SparkartGroupInc/solidus
 [handlebars]: http://handlebarsjs.com
-[grunt]: http://gruntjs.com
+[gulp]: http://gulpjs.com
 [storyteller]: http://www.storyteller.io
 [devbox]: https://github.com/solidusjs/solidus-devbox
 
