@@ -8,6 +8,7 @@
     "watch": "gulp _watch"
   },
   "devDependencies": {
+    "blocks-subscribe-email": "https://github.com/blocks/subscribe-email/releases/download/v1.1.0/blocks-subscribe-email-1.1.0.tgz",
     "gulp": "^3.8.7",
     "gulp-changed": "^0.4.1",
     "gulp-concat": "^2.3.4",
