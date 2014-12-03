@@ -1,7 +1,7 @@
 This site is built with:
 
  - [**Solidus**][solidus] serves pages from API data and [Handlebars templates][handlebars]
- - [**Gulp**][gulp] helps preprocess and compile assets, etc.
+ - [**gulp**][gulp] helps preprocess and compile assets, etc.
 
 
 Making Updates :octocat:
@@ -10,10 +10,6 @@ Making Updates :octocat:
 [Install the Solidus devbox][devbox] for the easiest way to get up and running. The devbox uses Vagrant to create and maintain a consistent development environment complete with everything you need.
 
 Be sure to [use branches][github-flow] and push granular commits regularly [with good messages][git-messages].
-
-## Gulp tasks
-
-This site contains a basic set of [Gulp](http://gulpjs.com) tasks that will move `jungle-solidus` common assets into the assets folder (`gulp _move-common-assets`), start Solidus (`gulp _start-solidus`), watch assets for changes and reload using LiveReload (`gulp _watch`), and fingerprint assets (`gulp _fingerprint`). If you want to compile or minify assets, you can add Gulp tasks to `gulpfile.js`. You can also just run `gulp` to move assets, start Solidus and watch for asset changes, or `gulp build` to move assets.
 
 ### Review
 

@@ -30,6 +30,6 @@
     "underscore.string": "^2.3.3"
   },
   "dependencies": {
-    "solidus": "~0.2.2"
+    "solidus": "^1.0.0"
   }
 }
