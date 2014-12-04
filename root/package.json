@@ -30,6 +30,8 @@
     "underscore.string": "^2.3.3"
   },
   "dependencies": {
-    "solidus": "^1.0.0"
+    "solidus": "solidusjs/solidus#104-external-partials-rebased",
+    "jungle-solidus": "SparkartGroupInc/jungle-solidus#dr3JdTPS-migration-template",
+    "solidus-metadata": "solidusjs/metadata#dev"
   }
 }
