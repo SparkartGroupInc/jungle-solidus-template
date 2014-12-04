@@ -65,15 +65,15 @@ All of a site's views can be accessed client-side as **JavaScript Templates**. T
 `index.hbs`
 ```html
 <html>
-	<head>
-		<script src="/compiled/templates.js"></script>
-		<script>
-			var markup = solidus.templates['kitties/index']( data );
-			$( function(){
-				$('body').append( markup );
-			});
-		</script>
-	</head>
+  <head>
+    <script src="/compiled/templates.js"></script>
+    <script>
+      var markup = solidus.templates['kitties/index']( data );
+      $( function(){
+        $('body').append( markup );
+      });
+    </script>
+  </head>
 </html>
 ```
 

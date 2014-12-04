@@ -1,24 +1,41 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
-<!--[if IE 7]><html class="lt-ie9 lt-ie8"><![endif]-->
-<!--[if IE 8]><html class="lt-ie9"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+<html lang="en">
 <head>
 
-	<title>{{page.title}}</title>
-	<link rel="stylesheet" href="/compiled/styles.css" />
-	{{#dev}}
-	<!-- Livereload script. Automatically reloads CSS when changed. -->
-	<script src="http://localhost:{{livereload_port}}/livereload.js?snipver=1"></script>
-	{{/dev}}
-	<!-- Site context, made available for use in client side javascript -->
-	<script>{{{context}}}</script>
-    <script src="/compiled/scripts.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <!-- meta http-equiv="X-UA-Compatible" content="IE=#" / -->
+
+  {{> solidus-metadata/tags }}
+  {{> jungle-solidus/defaults/styles }}
+  {{> jungle-solidus/defaults/variables }}
+  {{> jungle-solidus/defaults/integrations }}
+  {{> jungle-solidus/defaults/scripts }}
+
+  {{# each feeds }}
+    <link rel="alternate" type="application/atom+xml" title="{{ title }}" href="{{ url }}" />
+  {{/ each }}
+
+  <meta property="og:site_name" content="{{{ site.name }}}" />
+  <meta property="og:url" content="{{{ url.href }}}" />
+
+  {{# if development }}
+    <meta name="robots" content="noindex" />
+  {{/ if }}
 
 </head>
-<body id="page-{{page.name}}">
 
-	{{{body}}}
+<body id="page-{{ page.name }}" class="{{# if page.section }}section-{{ page.section }}{{/ if }} {{ parameters.topic }} {{ parameters.tag }}">
+
+  {{# if integrations.facebook_app_id }}
+    <div id="fb-root"></div>
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+  {{/ if }}
+
+  <div class="user">
+    <div class="member">
+      {{{ body }}}
+    </div>
+  </div>
 
 </body>
 </html>
