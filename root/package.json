@@ -22,6 +22,8 @@
     "hbsfy": "~1.3.2"
   },
   "dependencies": {
-    "solidus": "~0.2.2"
+    "solidus": "solidusjs/solidus#104-external-partials-rebased",
+    "jungle-solidus": "SparkartGroupInc/jungle-solidus#dr3JdTPS-migration-template",
+    "solidus-metadata": "solidusjs/metadata#dev"
   }
 }

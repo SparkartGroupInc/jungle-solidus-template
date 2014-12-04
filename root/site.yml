@@ -1,0 +1,10 @@
+integrations:
+  facebook_app_id:
+  addthis_publisher_id:
+  analytics_id:
+feeds:
+defaults:
+  browse_page:
+  display_page:
+  modify_page:
+  other_page:
