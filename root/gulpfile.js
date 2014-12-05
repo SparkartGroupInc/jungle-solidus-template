@@ -31,21 +31,6 @@ gulp.task('_move-common-assets', function(){
   .pipe(gulp.dest('assets/common'));
 });
 
-gulp.task('_start-solidus', function(){
-  nodemon({
-    script: 'start.js',
-    ext: 'hbs',
-    env: {
-      DEV: true,
-      PORT: solidusPort,
-      LIVERELOAD_PORT: livereloadPort,
-      LOG_SERVER_PORT: logserverPort,
-      LOG_LEVEL: logLevel,
-      LOG_SERVER_LEVEL: logserverLevel
-    }
-  });
-});
-
 gulp.task('_watch', function(){
   livereload.listen(livereloadPort);
   gulp.watch('./assets/**/*', function(e){
