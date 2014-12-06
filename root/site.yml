@@ -1,24 +1,27 @@
-client_name:
-site_tagline:
-client_page:
-client_tag:
-members_name:
-site_phone:
-site_email:
 integrations:
   facebook_app_id:
   addthis_publisher_id:
   analytics_id:
-  mailinglist_apikey: yourapikeyhere
+  mailinglist_apikey:
 feeds:
-defaults:
-  browse_page:
-  display_page:
-  modify_page:
-  other_page:
-
-# ASSETS
-# List all assets from Clique Tools template here in the order they should be included.
-scripts:
-  - 'node_modules/jungle-solidus/common_assets/javascripts/jquery.js'
-  - 'node_modules/jungle-solidus/common_assets/javascripts/plug-ins/cycle.js'
+  - title:
+    url:
+pages:
+  browse:
+    photo:
+    event:
+    editorial:
+    video:
+  display:
+    photo:
+    event:
+    editorial:
+    video:
+  modify:
+    account:
+  other:
+    signin:
+assets:
+  scripts:
+    - 'node_modules/jungle-solidus/common_assets/javascripts/jquery.js'
+    - 'node_modules/jungle-solidus/common_assets/javascripts/plug-ins/cycle.js'

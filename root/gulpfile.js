@@ -5,6 +5,7 @@ var filerevReplace = require('gulp-filerev-replace');
 var fs   = require('fs');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var hbsfy = require('hbsfy');
 var importCss = require('gulp-import-css');
 var livereload = require('gulp-livereload');
 var minifyCSS = require('gulp-minify-css');
@@ -39,6 +40,7 @@ cb);});
 //Private Tasks (not intended to be run individually via the CLI)
 gulp.task('_browserify', function(){
   return browserify({entries: ['./assets/modules/index.js']})
+  .transform(hbsfy)
   .transform(uglifyify)
   .bundle()
   .pipe(plumber({ errorHandler: logError }))
@@ -47,7 +49,7 @@ gulp.task('_browserify', function(){
 });
 
 gulp.task('_concat', function() {
-  var allScripts = site.scripts;
+  var allScripts = site.assets.scripts;
   allScripts.push('assets/compiled/browserified-modules.js');
   gulp.src(allScripts)
   .pipe(concat('scripts.js'))

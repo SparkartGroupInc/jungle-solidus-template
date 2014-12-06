@@ -1,7 +1,5 @@
-var yaml = require('js-yaml');
-//var site = yaml.safeLoad(fs.readFileSync('site.yml'));
-
 var SubscribeEmail = require('blocks-subscribe-email');
+var subscribeTemplate = require('./subscribe-template.hbs');
 //var Alerter = require('blocks-alerter');
 
 if (window.addEventListener) {
@@ -10,11 +8,15 @@ if (window.addEventListener) {
   window.attachEvent('onload', initWidgets);
 }
 
-//TODO: make this iterate over all widget instances
 function initWidgets() {
-  var mySubscribeForm = new SubscribeEmail({
-    element: '.widget-subscribe',
-    service: 'universe',
-    key: site.mailinglist_apikey
+
+  $('.widget-subscribe .subscribe-placeholder').each(function(index){
+    var mySubscribeForm = new SubscribeEmail({
+      element: $(this),
+      service: 'sendgrid',
+      key: site.name,
+      template: subscribeTemplate
+    });
   });
+
 };
