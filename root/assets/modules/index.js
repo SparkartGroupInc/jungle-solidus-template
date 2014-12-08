@@ -10,11 +10,13 @@ if (window.addEventListener) {
 
 function initWidgets() {
 
-  $('.widget-subscribe .subscribe-placeholder').each(function(index){
+  var subscribePlaceholders = document.querySelectorAll('.widget-subscribe .subscribe-placeholder');
+
+  Array.prototype.forEach.call(subscribePlaceholders, function(placeholder){
     var mySubscribeForm = new SubscribeEmail({
-      element: $(this),
+      element: placeholder,
       service: 'sendgrid',
-      key: site.name,
+      key: site.integrations.mailinglist_apikey,
       template: subscribeTemplate
     });
   });
