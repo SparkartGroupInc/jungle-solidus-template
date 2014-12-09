@@ -1,0 +1,14 @@
+<div id="{{id}}" class="alert {{#type}}alert--{{.}}{{/type}} {{#pageWide}}alert--page{{/pageWide}}" role="alert">
+  <div class="alert__content">
+    {{#message}}<h1 class="alert__title">{{{.}}}</h1>{{/message}}
+    {{#details}}<p class="alert__details">{{{.}}}</p>{{/details}}
+    {{#if errors}}
+    <ul class="alert__errors">
+      {{#each errors}}
+      <li class="alert__error">{{{.}}}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
+    {{#if dismissable }}<button class="alert__close-button">&times;</button>{{/if}}
+  </div>
+</div>
