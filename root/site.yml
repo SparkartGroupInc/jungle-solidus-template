@@ -2,7 +2,9 @@ integrations:
   facebook_app_id:
   addthis_publisher_id:
   analytics_id:
-  mailinglist_apikey:
+  sendgrid_apikey:
+  universe_apikey:
+  mailchimp_url:
 feeds:
   - title:
     url:
