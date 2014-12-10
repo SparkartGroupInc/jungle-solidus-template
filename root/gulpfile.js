@@ -1,4 +1,3 @@
-var argv = require('minimist')(process.argv);
 var browserify = require('browserify');
 var concat = require('gulp-concat');
 var filerevReplace = require('gulp-filerev-replace');
@@ -17,15 +16,6 @@ var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var uglifyify = require('uglifyify');
 
-var yaml = require('js-yaml');
-var site = yaml.safeLoad(fs.readFileSync('site.yml'));
-
-var solidusPort = argv.port || argv.p || process.env.PORT || 8080;
-var livereloadPort = parseFloat(process.env.npm_config_livereloadport) || 35729;
-var logserverPort = argv.logserverport || 8081;
-var logLevel = argv.loglevel || argv.l || 3;
-var logserverLevel = argv.logserverlevel;
-
 //Task Groups (intended to be run from command line)
 gulp.task('default', function(cb) { runSequence(
   'build',
@@ -39,7 +29,7 @@ cb);});
 
 //Private Tasks (not intended to be run individually via the CLI)
 gulp.task('_browserify', function(){
-  return browserify({entries: ['./assets/modules/index.js']})
+  return browserify({entries: ['./node_modules/jungle-solidus/scripts/index.js']})
   .transform(hbsfy)
   .transform(uglifyify)
   .bundle()
