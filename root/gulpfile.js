@@ -16,6 +16,9 @@ var source = require('vinyl-source-stream');
 var uglify = require('gulp-uglify');
 var uglifyify = require('uglifyify');
 
+var yaml = require('js-yaml');
+var site = yaml.safeLoad(fs.readFileSync('site.yml'));
+
 //Task Groups (intended to be run from command line)
 gulp.task('default', function(cb) { runSequence(
   'build',
