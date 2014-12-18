@@ -8,7 +8,7 @@
   {{> solidus-metadata/tags }}
   {{> jungle-solidus/defaults/styles }}
   {{> jungle-solidus/defaults/variables }}
-  {{> jungle-solidus/defaults/integrations }}
+  {{> jungle-solidus/defaults/integrations_head }}
   {{> jungle-solidus/defaults/scripts }}
 
   {{# each feeds }}
@@ -26,10 +26,7 @@
 
 <body id="page-{{ page.name }}" class="{{# if page.section }}section-{{ page.section }}{{/ if }} {{ parameters.topic }} {{ parameters.tag }}">
 
-  {{# if integrations.facebook_app_id }}
-    <div id="fb-root"></div>
-    <script src="http://connect.facebook.net/en_US/all.js"></script>
-  {{/ if }}
+  {{> jungle-solidus/defaults/integrations_body }}
 
   <div class="user">
     <div class="member">
