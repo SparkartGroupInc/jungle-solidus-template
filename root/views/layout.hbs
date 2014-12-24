@@ -6,10 +6,19 @@
   <!-- meta http-equiv="X-UA-Compatible" content="IE=#" / -->
 
   {{> solidus-metadata/tags }}
+
+  {{#cssAssets page}}
+  <link rel="stylesheet" href="{{.}}" />
+  {{/cssAssets}}
+
   {{> jungle-solidus/defaults/styles }}
   {{> jungle-solidus/defaults/variables }}
   {{> jungle-solidus/defaults/integrations_head }}
   {{> jungle-solidus/defaults/scripts }}
+
+  {{#jsAssets page}}
+  <script src="{{.}}"></script>
+  {{/jsAssets}}
 
   {{# each feeds }}
     <link rel="alternate" type="application/atom+xml" title="{{ title }}" href="{{ url }}" />

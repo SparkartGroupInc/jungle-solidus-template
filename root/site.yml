@@ -23,7 +23,57 @@ pages:
     account:
   other:
     signin:
-assets:
-  scripts:
-    - 'node_modules/jungle-solidus/common_assets/javascripts/jquery.js'
-    - 'node_modules/jungle-solidus/common_assets/javascripts/plug-ins/cycle.js'
+integrations:
+  facebook_app_id:
+  addthis_publisher_id:
+  analytics_id:
+  sendgrid_apikey:
+  universe_apikey:
+  mailchimp_url:
+feeds:
+pages:
+  browse:
+    photo:
+    event:
+    editorial:
+    video: videos
+  display:
+    photo:
+    event:
+    editorial:
+    video: videos
+  modify:
+    account:
+  other:
+    signin:
+media_clip_video_image_width: 200
+media_clip_video_image_height: 150
+sections: #Includes information about sections, their pages and assets
+  - default: #Site Default assets to bundle, in order
+      scripts:
+        # Common JavaScript Files (./node_modules/jungle-solidus/common_assets/javascripts/*)
+        - './node_modules/jungle-solidus/common_assets/javascripts/'
+        # Pattern JS Files (./node_modules/jungle-solidus/common_assets/patterns/*)
+        - './node_modules/jungle-solidus/common_assets/patterns/'
+        # Site JS Files (./assets/scripts/*)
+        - './assets/scripts/'
+      styles:
+        # Pattern CSS Files (./node_modules/jungle-solidus/common_assets/patterns/*)
+        - './node_modules/jungle-solidus/common_assets/patterns/'
+        # Site CSS Files (./assets/styles/*)
+        - './assets/styles/'
+      # for this section, only list pages that have custom assets all pages that
+      # are not listed in other sections are assumed to belong to this
+      # pages:
+      #   - example-page:
+      #       styles:
+      #         - './path/to/example.css'
+      #       scripts:
+      #         - './path/to/example.js'
+  - home:
+      pages:
+        - index
+  - legal:
+      pages:
+        - privacy
+        - terms
