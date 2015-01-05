@@ -7,18 +7,18 @@
 
   {{> solidus-metadata/tags }}
 
-  {{#cssAssets page}}
+  {{#assets page 'styles'}}
   <link rel="stylesheet" href="{{.}}" />
-  {{/cssAssets}}
+  {{/assets}}
 
   {{> jungle-solidus/defaults/styles }}
   {{> jungle-solidus/defaults/variables }}
   {{> jungle-solidus/defaults/integrations_head }}
   {{> jungle-solidus/defaults/scripts }}
 
-  {{#jsAssets page}}
+  {{#assets page 'scripts'}}
   <script src="{{.}}"></script>
-  {{/jsAssets}}
+  {{/assets}}
 
   {{# each feeds }}
     <link rel="alternate" type="application/atom+xml" title="{{ title }}" href="{{ url }}" />
