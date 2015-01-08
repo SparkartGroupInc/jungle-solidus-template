@@ -1,0 +1,29 @@
+integrations:
+  facebook_app_id:
+  addthis_publisher_id:
+  analytics_id:
+  sendgrid_apikey:
+  universe_apikey:
+  mailchimp_url:
+feeds:
+  - title:
+    url:
+pages:
+  browse:
+    photo:
+    event:
+    editorial:
+    video:
+  display:
+    photo:
+    event:
+    editorial:
+    video:
+  modify:
+    account:
+  other:
+    signin:
+assets:
+  scripts:
+    - 'node_modules/jungle-solidus/common_assets/javascripts/jquery.js'
+    - 'node_modules/jungle-solidus/common_assets/javascripts/plug-ins/cycle.js'

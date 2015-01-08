@@ -3,25 +3,38 @@
   "version": "0.0.0",
   "private": true,
   "main": "start.js",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp _watch"
+  },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-browserify": "~1.3.1",
-    "grunt-contrib-clean": "~0.4.1",
-    "grunt-contrib-copy": "~0.4.1",
-    "grunt-contrib-cssmin": "~0.6.1",
-    "grunt-contrib-sass": "~0.8.0",
-    "grunt-contrib-watch": "~0.5.1",
-    "grunt-cssjoin": "~0.2.0",
-    "grunt-filerev-replace": "0.1.1",
-    "grunt-filerev": "~0.1.0",
-    "grunt-prompt": "~0.1.2",
-    "grunt-regarde": "~0.1.1",
-    "grunt-shell": "~0.6.1",
-    "handlebars-helper": "0.0.x",
+    "browserify": "^7.0.0",
+    "gulp": "^3.8.7",
+    "gulp-changed": "^0.4.1",
+    "gulp-concat": "^2.3.4",
+    "gulp-filerev-replace": "solidusjs/gulp-filerev-replace",
+    "gulp-imagemin": "^0.6.2",
+    "gulp-import-css": "^0.1.2",
+    "gulp-livereload": "^2.1.1",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-nodemon": "^1.0.4",
+    "gulp-plumber": "^0.6.6",
+    "gulp-uglify": "^1.0.0",
+    "gulp-util": "^3.0.1",
     "handlebars": "1.3.x",
-    "hbsfy": "~1.3.2"
+    "handlebars-helper": "0.0.x",
+    "hbsfy": "~1.3.2",
+    "jungle-solidus": "sparkartgroupinc/jungle-solidus",
+    "minimist": "^1.1.0",
+    "require-dir": "^0.1.0",
+    "run-sequence": "^1.0.1",
+    "uglifyify": "^2.6.0",
+    "underscore": "^1.7.0",
+    "underscore.string": "^2.3.3",
+    "vinyl-source-stream": "^1.0.0"
   },
   "dependencies": {
-    "solidus": "~0.2.2"
+    "solidus": "solidusjs/solidus#104-external-partials-rebased",
+    "solidus-metadata": "solidusjs/metadata#dev"
   }
 }
