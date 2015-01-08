@@ -4,8 +4,8 @@
   "private": true,
   "main": "start.js",
   "scripts": {
-    "compile-assets": "gulp build",
-    "watch-assets": "gulp _watch"
+    "build": "gulp build",
+    "watch": "gulp _watch"
   },
   "devDependencies": {
     "gulp": "^3.8.7",
