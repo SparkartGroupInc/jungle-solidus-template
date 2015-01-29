@@ -1,56 +1,48 @@
-var argv = require('minimist')(process.argv);
-var concat = require('gulp-concat');
-var filerevReplace = require('gulp-filerev-replace');
 var gulp = require('gulp');
-var gutil = require('gulp-util');
-var importCss = require('gulp-import-css');
-var livereload = require('gulp-livereload');
-var minifyCSS = require('gulp-minify-css');
-var nodemon = require('gulp-nodemon');
-var plumber = require('gulp-plumber');
-var runSequence = require('run-sequence');
-var solidus = require('solidus');
-var uglify = require('gulp-uglify');
 
-var solidusPort = argv.port || argv.p || process.env.PORT || 8080;
-var livereloadPort = parseFloat(process.env.npm_config_livereloadport) || 35729;
-var logserverPort = argv.logserverport || 8081;
-var logLevel = argv.loglevel || argv.l || 3;
-var logserverLevel = argv.logserverlevel;
+// Require Shared Tasks
+var requireDir = require('require-dir');
+var broadwayTasks = requireDir('./node_modules/broadway/tasks/', { recurse: true });
+var jungleTasks = requireDir('./node_modules/jungle-solidus/tasks/', { recurse: true });
 
-//Task Groups (intended to be run from command line)
-gulp.task('default', function(cb) { runSequence(
-  'build',
-  ['_start-solidus','_watch'],
-cb);});
-gulp.task('build', ['_move-common-assets']);
+// Require Site Config
+var fs = require('fs');
+var yaml = require('js-yaml');
+var site = yaml.safeLoad(fs.readFileSync('site.yml'));
 
-//Private Tasks (not intended to be run individually)
-gulp.task('_move-common-assets', function(){
-  return gulp.src(['node_modules/jungle-solidus/common_assets/**'])
-  .pipe(gulp.dest('assets/common'));
+// If assets haven't been defined in site.yml, set an empty array so site can start
+var siteScripts = site.scripts && site.scripts.default ? site.scripts.default  : [];
+var siteStyles = site.styles && site.styles.default ? site.styles.default : [];
+
+// Site Specific Tasks
+gulp.task('default', ['build', 'watch']);
+gulp.task('build', ['_compile-js', '_concat-css']);
+gulp.task('watch', function(){
+  broadwayTasks.watch('./assets/**/*');
 });
 
-gulp.task('_watch', function(){
-  livereload.listen(livereloadPort);
-  gulp.watch('./assets/**/*', function(e){
-    livereload.changed(e.path, livereloadPort);
-  });
+// Shared Tasks
+//   These should only define the source, filename and destination, and handle errors.
+//   The tasks themselves should come from broadway (or jungle-solidus) for consistency.
+gulp.task('_compile-js', function(){
+  siteScripts.forEach(jungleTasks.addFullPaths);
+  gulp.src(siteScripts)
+  .pipe(jungleTasks.compileJs('scripts.js'))
+  .on('error', broadwayTasks.handleErrors)
+  .pipe(gulp.dest('./assets/compiled/'));
+});
+
+gulp.task('_concat-css', function() {
+  siteStyles.forEach(jungleTasks.addFullPaths);
+  gulp.src(siteStyles)
+  .pipe(jungleTasks.concat('styles.css'))
+  .on('error', broadwayTasks.handleErrors)
+  .pipe(gulp.dest('assets/compiled'))
 });
 
 gulp.task('_fingerprint', function(){
   gulp.src(['assets/**/*', '!assets/{scripts,styles}/**/*', 'views/**/*'], {base: process.cwd()})
-  .pipe(plumber({ errorHandler: logError }))
-  .pipe(filerevReplace({
-    filerev: ['assets/**/*'],
-    replace: ['assets/compiled/**/*', 'views/**/*'],
-    base:    'assets'}))
+  .pipe(broadwayTasks.fingerprint())
+  .on('error', broadwayTasks.handleErrors)
   .pipe(gulp.dest(process.cwd()));
 });
-
-//Helper Functions
-function logError(err) {
-  gutil.beep();
-  gutil.log(gutil.colors.red(err));
-  this.emit('end');
-}
