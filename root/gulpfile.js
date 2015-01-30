@@ -16,7 +16,7 @@ var siteStyles = site.styles && site.styles.default ? site.styles.default : [];
 
 // Site Specific Tasks
 gulp.task('default', ['build', 'watch']);
-gulp.task('build', ['_compile-js', '_concat-css']);
+gulp.task('build', ['_compile-js', '_compile-css']);
 gulp.task('watch', function(){
   broadwayTasks.watch('./assets/**/*');
 });
@@ -27,22 +27,22 @@ gulp.task('watch', function(){
 gulp.task('_compile-js', function(){
   siteScripts.forEach(jungleTasks.addFullPaths);
   gulp.src(siteScripts)
-  .pipe(jungleTasks.compileJs('scripts.js'))
-  .on('error', broadwayTasks.handleErrors)
-  .pipe(gulp.dest('./assets/compiled/'));
+    .pipe(jungleTasks.compileJs('scripts.js'))
+    .on('error', broadwayTasks.handleErrors)
+    .pipe(gulp.dest('./assets/compiled/'));
 });
 
-gulp.task('_concat-css', function() {
-  siteStyles.forEach(jungleTasks.addFullPaths);
+gulp.task('_compile-css', function() {
+  site.styles.default.forEach(jungleTasks.addFullPaths);
   gulp.src(siteStyles)
-  .pipe(jungleTasks.concat('styles.css'))
-  .on('error', broadwayTasks.handleErrors)
-  .pipe(gulp.dest('assets/compiled'))
+    .pipe(jungleTasks.compileCss('styles.css'))
+    .on('error', broadwayTasks.handleErrors)
+    .pipe(gulp.dest('assets/compiled'))
 });
 
 gulp.task('_fingerprint', function(){
   gulp.src(['assets/**/*', '!assets/{scripts,styles}/**/*', 'views/**/*'], {base: process.cwd()})
-  .pipe(broadwayTasks.fingerprint())
-  .on('error', broadwayTasks.handleErrors)
-  .pipe(gulp.dest(process.cwd()));
+    .pipe(broadwayTasks.fingerprint())
+    .on('error', broadwayTasks.handleErrors)
+    .pipe(gulp.dest(process.cwd()));
 });
