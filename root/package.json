@@ -25,7 +25,6 @@
   "dependencies": {
     "broadway": "SparkartGroupInc/broadway",
     "jungle-solidus": "SparkartGroupInc/jungle-solidus#v1.4.0",
-    "solidus": "^1.1.0",
-    "solidus-metadata": "solidusjs/metadata#dev"
+    "solidus": "^1.1.0"
   }
 }
