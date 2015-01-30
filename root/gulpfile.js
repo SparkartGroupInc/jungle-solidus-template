@@ -34,7 +34,7 @@ gulp.task('_compile-js', function(){
 });
 
 gulp.task('_compile-css', function() {
-  site.styles.default.forEach(jungleTasks.addFullPaths);
+  siteStyles.forEach(jungleTasks.addFullPaths);
   gulp.src(siteStyles)
     .pipe(jungleTasks.compileCss('styles.css'))
     .on('error', broadwayTasks.handleErrors)
