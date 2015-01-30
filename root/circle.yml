@@ -15,7 +15,7 @@ deployment:
   production:
     branch: master
     commands:
-     - gulp _fingerprint
+     - gulp predeploy
      - modulus deploy ./deploy -p $CIRCLE_PROJECT_REPONAME --include-modules
   review:
     branch: /^(?!master$)(.*)/
