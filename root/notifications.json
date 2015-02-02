@@ -1,7 +1,0 @@
-{
-  "deployer": {"include_modules": true},
-  "notifiers": [
-    {"service": "github-pull-request"},
-    {"service": "webhook", "url": "https://zapier.com/hooks/catch/qf554/", "notify_redeploys": true}
-  ]
-}

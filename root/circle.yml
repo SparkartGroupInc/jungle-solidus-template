@@ -1,28 +1,16 @@
 machine:
   node:
     version: 0.10.25
-dependencies:
-  post:
-    - npm install modulus -g
-    - npm install qa-deployer -g
-    - modulus login --username $MODULUS_USERNAME --password $MODULUS_PASSWORD
-    - gem install bundler
-    - bundle install --system
-test:
-  override:
-    - gulp build
 deployment:
   production:
     branch: master
     commands:
-     - gulp predeploy
-     - modulus deploy ./deploy -p $CIRCLE_PROJECT_REPONAME --include-modules
+      - npm run deploy
   review:
     branch: /^(?!master$)(.*)/
     commands:
-      - circleci-deploy-github-pull-request-to-modulus --options-from=notifications.json
+      - npm run deploy-review
 notify:
   webhooks:
-     - url: https://zapier.com/hooks/catch/n/rsxym/
-     - url: https://zapier.com/hooks/catch/n/198yq/
-     - url: https://zapier.com/hooks/catch/n/198op/
+    # Failed Build Notification (https://zapier.com/app/editor/869264)
+    - url: https://zapier.com/hooks/catch/n/198yq/

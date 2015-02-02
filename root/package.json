@@ -5,22 +5,26 @@
   "main": "start.js",
   "scripts": {
     "build": "gulp build",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "predeploy": "npm run build && gulp predeploy",
+    "deploy": "deploy --options-from=./node_modules/broadway/config/deploy-modulus-production.json",
+    "predeploy-review": "npm run build",
+    "deploy-review": "deploy-review --options-from=./node_modules/broadway/config/deploy-modulus-review.json",
+    "test": "echo"
   },
   "devDependencies": {
-    "broadway": "SparkartGroupInc/broadway",
     "gulp": "^3.8.7",
     "handlebars": "1.3.x",
     "handlebars-helper": "0.0.x",
     "js-yaml": "^3.2.3",
-    "jungle-solidus": "SparkartGroupInc/jungle-solidus#v1.4.0",
     "minimist": "^1.1.0",
     "require-dir": "^0.1.0",
     "underscore": "^1.7.0",
     "underscore.string": "^2.3.3"
   },
   "dependencies": {
-    "solidus": "^1.1.0",
-    "solidus-metadata": "solidusjs/metadata#dev"
+    "broadway": "SparkartGroupInc/broadway",
+    "jungle-solidus": "SparkartGroupInc/jungle-solidus#v1.4.0",
+    "solidus": "^1.1.0"
   }
 }
