@@ -12,5 +12,5 @@ deployment:
       - npm run deploy-review
 notify:
   webhooks:
-    # Failed Build Notification
+    # Failed Build Notification (https://zapier.com/app/editor/869264)
     - url: https://zapier.com/hooks/catch/n/198yq/
