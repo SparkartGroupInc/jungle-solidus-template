@@ -38,7 +38,7 @@ gulp.task('_compile-css', function() {
   gulp.src(siteStyles)
     .pipe(jungleTasks.compileCss('styles.css'))
     .on('error', broadwayTasks.handleErrors)
-    .pipe(gulp.dest('assets/compiled'))
+    .pipe(gulp.dest('assets/compiled/'))
 });
 
 gulp.task('_fingerprint', function(){
