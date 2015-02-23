@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "broadway": "SparkartGroupInc/broadway",
-    "jungle-solidus": "SparkartGroupInc/jungle-solidus#v1.4.0",
+    "jungle-solidus": "SparkartGroupInc/jungle-solidus",
     "solidus": "^1.1.0"
   }
 }
