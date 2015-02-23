@@ -1,5 +1,2 @@
-/{default*}:
-  title:
-  description:
-  image:
-  canonical:
+/*:
+  title: {%= name %}
