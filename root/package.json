@@ -7,12 +7,13 @@
     "build": "gulp build",
     "watch": "gulp watch",
     "predeploy": "npm run build && gulp predeploy",
-    "deploy": "deploy --options-from=./node_modules/broadway/config/deploy-modulus-production.json",
+    "deploy": "deploy --options-from=./node_modules/broadway/config/deploy-modulus-production",
     "predeploy-review": "npm run build",
-    "deploy-review": "deploy-review --options-from=./node_modules/broadway/config/deploy-modulus-review.json",
+    "deploy-review": "deploy-review --options-from=./node_modules/broadway/config/deploy-modulus-review",
     "test": "echo"
   },
   "devDependencies": {
+    "broadway": "SparkartGroupInc/broadway"
     "gulp": "^3.8.7",
     "handlebars": "1.3.x",
     "handlebars-helper": "0.0.x",
@@ -23,7 +24,6 @@
     "underscore.string": "^2.3.3"
   },
   "dependencies": {
-    "broadway": "SparkartGroupInc/broadway",
     "jungle-solidus": "SparkartGroupInc/jungle-solidus",
     "solidus": "^1.1.0"
   }
