@@ -1,4 +1,4 @@
-var jungle = require('jungle-solidus/preprocessors');
+var jungle = require('jungle-solidus/preprocessors/site');
 
 module.exports = function( context ){
   context = jungle(context);

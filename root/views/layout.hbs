@@ -6,25 +6,26 @@
   <!-- meta http-equiv="X-UA-Compatible" content="IE=#" / -->
 
   {{> jungle-solidus/node_modules/solidus-metadata/tags }}
+
   {{> jungle-solidus/defaults/styles }}
   {{> jungle-solidus/defaults/variables }}
   {{> jungle-solidus/defaults/integrations_head }}
   {{> jungle-solidus/defaults/scripts }}
 
-  {{# each feeds }}
+  {{#each feeds}}
     <link rel="alternate" type="application/atom+xml" title="{{ title }}" href="{{ url }}" />
-  {{/ each }}
+  {{/each}}
 
   <meta property="og:site_name" content="{{{ site.name }}}" />
   <meta property="og:url" content="{{{ url.href }}}" />
 
-  {{# if development }}
+  {{#if development }}
     <meta name="robots" content="noindex" />
-  {{/ if }}
+  {{/if}}
 
 </head>
 
-<body id="page-{{ page.name }}" class="{{# if page.section }}section-{{ page.section }}{{/ if }} {{ parameters.topic }} {{ parameters.tag }}">
+<body id="page-{{ page.name }}" class="{{#if page.section}}section-{{ page.section }}{{/if}} {{ parameters.topic }} {{ parameters.tag }}">
 
   {{> jungle-solidus/defaults/integrations_body }}
 

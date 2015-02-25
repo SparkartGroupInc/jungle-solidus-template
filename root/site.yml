@@ -1,42 +1,74 @@
+# see: https://github.com/sparkartgroupinc/jungle-solidus/wiki/configuration
+
 integrations:
+
   facebook_app_id:
   addthis_publisher_id:
   analytics_id:
   sendgrid_apikey:
   universe_apikey:
   mailchimp_url:
+
 feeds:
+
 pages:
+
   browse:
     photo:
     event:
     editorial:
-    video: videos
+    video:
+
   display:
     photo:
     event:
     editorial:
-    video: videos
+    video:
+
   modify:
     account:
+
   other:
     signin:
-media_clip_video_image_width: 200
-media_clip_video_image_height: 150
+
+images:
+
+  full:
+    release:
+
+  flexible:
+    photo:
+
+  thumbnails:
+    editorial:
+    photo:
+    release:
+    video:
+
 sections:
+
   # home:
   #   - index
+
 scripts:
+
   default:
+
     # Common JavaScript Files (/node_modules/jungle-solidus/*)
     # - common_assets/
+
     # Pattern JS Files (/node_modules/jungle-solidus/*)
     # - common_assets/
+
     # Site JS Files (/assets/scripts/*)
-    # - 
+    # -
+
 styles:
+
   default:
+
     # Pattern CSS Files (/node_modules/jungle-solidus/*)
     # - common_assets/
+
     # Then Site CSS (/assets/styles/*)
     # -

@@ -1,7 +1,11 @@
 This site is built with:
 
  - [**Solidus**][solidus] serves pages from API data and [Handlebars templates][handlebars]
- - [**gulp**][gulp] helps preprocess and compile assets, etc.
+ - [**storyteller.io**][storyteller] provides reliable access to APIs
+ - [**gulp**][gulp] runs tasks to compile and fingerprint assets
+ - [**npm**][npm] manages library and third-party dependencies
+
+Previously the site was built with Clique Tools, a retired content/commerce/community platform. It was migrated to Solidus and a variety of other services following the [jungle-solidus migration path][jungle-solidus].
 
 
 Making Updates :octocat:
@@ -31,7 +35,9 @@ Success/fail messages from CircleCI are posted in the [#deployments][slack] Slac
 [solidus]: https://github.com/SparkartGroupInc/solidus
 [handlebars]: http://handlebarsjs.com
 [gulp]: http://gulpjs.com
+[npm]: https://www.npmjs.com
 [storyteller]: http://www.storyteller.io
+[jungle-solidus]: https://github.com/sparkartgroupinc/jungle-solidus/wiki
 [devbox]: https://github.com/solidusjs/solidus-devbox
 
 [github-checklists]: https://github.com/blog/1375
