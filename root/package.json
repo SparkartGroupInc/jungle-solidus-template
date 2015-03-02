@@ -16,13 +16,13 @@
     "broadway": "SparkartGroupInc/broadway",
     "gulp": "^3.8.7",
     "handlebars": "1.3.x",
-    "handlebars-helper": "0.0.x",
-    "js-yaml": "^3.2.3",
-    "require-dir": "^0.1.0",
-    "underscore": "^1.7.0"
+    "handlebars-helper": "0.0.x"
   },
   "dependencies": {
+    "js-yaml": "^3.2.3",
     "jungle-solidus": "SparkartGroupInc/jungle-solidus",
-    "solidus": "^1.1.0"
+    "require-dir": "^0.1.0",
+    "solidus": "^1.1.0",
+    "underscore": "^1.7.0"
   }
 }
