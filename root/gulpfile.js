@@ -14,6 +14,9 @@ var site = yaml.safeLoad(fs.readFileSync('site.yml'));
 var siteScripts = site.scripts && site.scripts.default ? site.scripts.default  : [];
 var siteStyles = site.styles && site.styles.default ? site.styles.default : [];
 
+siteScripts.forEach(jungleTasks.addFullPaths);
+siteStyles.forEach(jungleTasks.addFullPaths);
+
 // Site Specific Tasks
 gulp.task('default', ['build', 'watch']);
 gulp.task('build', ['_compile-js', '_compile-css']);
@@ -26,23 +29,21 @@ gulp.task('watch', function(){
 //   These should only define the source, filename and destination, and handle errors.
 //   The tasks themselves should come from broadway (or jungle-solidus) for consistency.
 gulp.task('_compile-js', function(){
-  siteScripts.forEach(jungleTasks.addFullPaths);
-  gulp.src(siteScripts)
+  return gulp.src(siteScripts)
     .pipe(jungleTasks.compileJs('scripts.js'))
     .on('error', broadwayTasks.handleErrors)
     .pipe(gulp.dest('./assets/compiled/'));
 });
 
 gulp.task('_compile-css', function() {
-  siteStyles.forEach(jungleTasks.addFullPaths);
-  gulp.src(siteStyles)
+  return gulp.src(siteStyles)
     .pipe(jungleTasks.compileCss('styles.css'))
     .on('error', broadwayTasks.handleErrors)
     .pipe(gulp.dest('assets/compiled/'))
 });
 
 gulp.task('_fingerprint', function(){
-  gulp.src(['assets/**/*', '!assets/{scripts,styles}/**/*', 'views/**/*'], {base: process.cwd()})
+  return gulp.src(['assets/**/*', '!assets/{scripts,styles}/**/*', 'views/**/*'], {base: process.cwd()})
     .pipe(broadwayTasks.fingerprint())
     .on('error', broadwayTasks.handleErrors)
     .pipe(gulp.dest(process.cwd()));
