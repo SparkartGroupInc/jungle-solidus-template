@@ -29,21 +29,21 @@ gulp.task('watch', function(){
 //   These should only define the source, filename and destination, and handle errors.
 //   The tasks themselves should come from broadway (or jungle-solidus) for consistency.
 gulp.task('_compile-js', function(){
-  gulp.src(siteScripts)
+  return gulp.src(siteScripts)
     .pipe(jungleTasks.compileJs('scripts.js'))
     .on('error', broadwayTasks.handleErrors)
     .pipe(gulp.dest('./assets/compiled/'));
 });
 
 gulp.task('_compile-css', function() {
-  gulp.src(siteStyles)
+  return gulp.src(siteStyles)
     .pipe(jungleTasks.compileCss('styles.css'))
     .on('error', broadwayTasks.handleErrors)
     .pipe(gulp.dest('assets/compiled/'))
 });
 
 gulp.task('_fingerprint', function(){
-  gulp.src(['assets/**/*', '!assets/{scripts,styles}/**/*', 'views/**/*'], {base: process.cwd()})
+  return gulp.src(['assets/**/*', '!assets/{scripts,styles}/**/*', 'views/**/*'], {base: process.cwd()})
     .pipe(broadwayTasks.fingerprint())
     .on('error', broadwayTasks.handleErrors)
     .pipe(gulp.dest(process.cwd()));
